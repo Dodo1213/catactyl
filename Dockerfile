@@ -41,7 +41,7 @@ RUN rm -rf /usr/bin/dd \
 RUN apt-get update && apt-get install -y dos2unix
 COPY ./minecraft.sh /minecraft.sh
 RUN dos2unix /minecraft.sh && chmod +x /minecraft.sh
-RUN apt-get update && apt-get install iputils-ping
+RUN apt-get update && apt-get install iputils-ping -y
 
 # MariaDB
 RUN apt-get update \
