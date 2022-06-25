@@ -1,4 +1,4 @@
-FROM ghcr.io/jitesoft/debian:bullseye
+FROM ghcr.io/jitesoft/debian:bullseye-slim
 
 ENV DEBIAN_FRONTEND noninteractive
 
