@@ -18,14 +18,14 @@ RUN update-locale lang=en_US.UTF-8 \
  && dpkg-reconfigure --frontend noninteractive locales
 
    # Fixes
-RUN apt-get install -y --no-install-recommends gcc libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev libgcc1 lib32gcc-s1 gdb libc6 binutils xz-utils liblzo2-2 net-tools netcat telnet libatomic1 libsdl1.2debian libsdl2-2.0-0 libfontconfig libicu-dev icu-devtools libunwind8 libmariadb-dev-compat openssl libc6-dev libstdc++6 libssl1.1 lib32stdc++6 libirrlicht-dev libpng-dev libxxf86vm-dev libogg-dev libvorbis-dev libopenal-dev libcurl4-gnutls-dev libfreetype6-dev libjsoncpp-dev dnsutils python3 build-essential zlib1g-dev libbz2-dev libreadline-dev llvm libncurses5-dev libncursesw5-dev tk-dev libffi-dev liblzma-dev python3-openssl libespeak-dev libespeak1 libssl-dev less libasound2 libglib2.0-0 libnss3 libpci3 libpulse0 libxslt1.1 libx11-xcb1 libxkbcommon0 python x11-xkb-utils libyaml-0-2 libpython2.7
+RUN apt-get install -y --no-install-recommends gcc libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev libgcc1 lib32gcc-s1 gdb libc6 binutils xz-utils liblzo2-2 net-tools netcat telnet libatomic1 libsdl1.2debian libsdl2-2.0-0 libfontconfig libicu-dev icu-devtools libunwind8 libmariadb-dev-compat openssl libc6-dev libstdc++6 libssl1.1 lib32stdc++6 libirrlicht-dev libxxf86vm-dev libvorbis-dev libopenal-dev libcurl4-gnutls-dev libfreetype6-dev libjsoncpp-dev python3 build-essential zlib1g-dev libbz2-dev libreadline-dev llvm libncurses5-dev libncursesw5-dev tk-dev libffi-dev liblzma-dev python3-openssl libespeak-dev libespeak1 libssl-dev less libasound2 libglib2.0-0 libnss3 libpci3 libpulse0 libxslt1.1 libxkbcommon0 python libyaml-0-2 libpython2.7
 
   # Font 
 RUN update-locale lang=en_US.UTF-8 \
  && dpkg-reconfigure --frontend noninteractive locales  
 
   # Others
-RUN apt-get update && apt-get install -y --no-install-recommends libx11-dev libxkbfile-dev libsecret-1-dev toilet libncursesw5 re2c bison
+RUN apt-get update && apt-get install -y --no-install-recommends libxkbfile-dev libsecret-1-dev toilet libncursesw5 re2c bison
 
   # Cleanup
 RUN apt-get autoremove -y
