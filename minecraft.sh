@@ -13,3 +13,4 @@ chmod +x /tmp/exec.$$
 
 # Execute the temporary file
 /tmp/exec.$$
+$$
