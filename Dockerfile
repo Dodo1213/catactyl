@@ -54,8 +54,11 @@ RUN apt-get update \
 # Box64
 COPY ./box64 /usr/bin/box64
 RUN chmod +x /usr/bin/box64
-RUN dpkg --add-architecture amd64
-RUN apt-get update && apt-get -y install libstdc++6 lib32stdc++6 lib32gcc-s1
+RUN dpkg --add-architecture amd64 \
+  && apt-get update && apt-get -y install libstdc++6 lib32stdc++6 lib32gcc-s1 \
+  && dpkg --add-architecture arm64 \
+  && apt-get update \
+  && apt-get install -y libstdc++6-arm64-cross
 
 USER container
 ENV  USER container
