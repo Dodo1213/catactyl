@@ -58,7 +58,7 @@ RUN dpkg --add-architecture amd64 \
   && apt-get update && apt-get -y install lib32gcc-s1 lib32stdc++6 \
   && dpkg --add-architecture arm64 \
   && apt update \
-  && apt install -y qemu-user qemu-user-static gcc-aarch64-linux-gnu binutils-aarch64-linux-gnu binutils-aarch64-linux-gnu-dbg build-essential
+  && apt install -y qemu-user qemu-user-static
 
 USER container
 ENV  USER container
