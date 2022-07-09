@@ -53,7 +53,7 @@ RUN apt-get update \
 
 # Box64
 COPY ./box64 /usr/bin/box64
-RUN chmod u+x /usr/bin/box64
+RUN chmod +x /usr/bin/box64
 
 USER container
 ENV  USER container
