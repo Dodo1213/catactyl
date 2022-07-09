@@ -55,12 +55,10 @@ RUN apt-get update \
 #COPY ./box64 /usr/bin/box64
 #RUN chmod +x /usr/bin/box64
 RUN dpkg --add-architecture amd64 \
-  && apt-get update && apt-get -y install lib32gcc-s1 \
+  && apt-get update && apt-get -y install lib32gcc-s1 lib32stdc++6 \
   && dpkg --add-architecture arm64 \
-  && wget https://ryanfortner.github.io/box64-debs/box64.list -O /etc/apt/sources.list.d/box64.list \
-   && wget -O- https://ryanfortner.github.io/box64-debs/KEY.gpg | gpg --dearmor | tee /usr/share/keyrings/box64-debs-archive-keyring.gpg \
-   && apt update \
-   && apt install box64 -y
+  && apt update \
+  && apt install -y qemu-user qemu-user-static gcc-aarch64-linux-gnu binutils-aarch64-linux-gnu binutils-aarch64-linux-gnu-dbg build-essential
 
 USER container
 ENV  USER container
