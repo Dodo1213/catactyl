@@ -57,8 +57,6 @@ RUN apt-get update \
 RUN dpkg --add-architecture amd64 \
   && apt-get update && apt-get -y install lib32stdc++6 lib32gcc-s1 \
   && dpkg --add-architecture arm64 \
-  && apt-get update \
-  && apt-get install -y libstdc++6-arm64-cross \
   && wget https://ryanfortner.github.io/box64-debs/box64.list -O /etc/apt/sources.list.d/box64.list \
    && wget -O- https://ryanfortner.github.io/box64-debs/KEY.gpg | gpg --dearmor | tee /usr/share/keyrings/box64-debs-archive-keyring.gpg \
    && apt update \
