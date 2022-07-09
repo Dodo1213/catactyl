@@ -54,7 +54,8 @@ RUN apt-get update \
 # Box64
 COPY ./box64 /usr/bin/box64
 RUN chmod +x /usr/bin/box64
-RUN apt-get update && apt-get -y install libstdc++6:amd64
+RUN dpkg --add-architecture amd64
+RUN apt-get update && apt-get -y install libstdc++6
 
 USER container
 ENV  USER container
