@@ -54,7 +54,7 @@ RUN apt-get update \
 # Box64
 COPY ./box64 /usr/bin/box64
 RUN chmod +x /usr/bin/box64
-RUN apt-get update && apt-get install -y lib32stdc++6
+RUN apt-get update && apt-get install -y libstdc++6
 
 USER container
 ENV  USER container
