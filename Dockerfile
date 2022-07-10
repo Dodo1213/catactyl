@@ -64,7 +64,8 @@ RUN apt-get update && apt-get install -y cmake \
   && cd box64 \
   && mkdir build; cd build; cmake .. -DCMAKE_BUILD_TYPE=RelWithDebInfo \
   && make -j4 \
-  && make install \
+  && mv box64 /usr/bin/box64 \
+  && chmod +x /usr/bin/box64 \
   && cd ~ \
   && rm -rf box64
 
