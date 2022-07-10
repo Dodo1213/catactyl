@@ -53,21 +53,14 @@ RUN apt-get update \
 RUN apt-get update \
   && apt-get install -y g++ make libc6-dev cmake libpng-dev libjpeg-dev libxxf86vm-dev libgl1-mesa-dev libsqlite3-dev libogg-dev libvorbis-dev libopenal-dev libcurl4-gnutls-dev libfreetype6-dev zlib1g-dev libgmp-dev libjsoncpp-dev libzstd-dev libluajit-5.1-dev libirrlicht1.8 libirrlicht-dev libirrlicht-doc
 
-# Box64
-#COPY ./box64 /usr/bin/box64
-#RUN chmod +x /usr/bin/box64
-#RUN dpkg --add-architecture amd64 && dpkg --add-architecture arm64 && apt-get update && apt-get -y install lib32gcc-s1 lib32stdc++6 lib32z1 && apt-get upgrade -y 
-  
-RUN apt-get update && apt-get install -y cmake \
-  && cd ~ \
-  && git clone https://github.com/ptitSeb/box64 \
-  && cd box64 \
-  && mkdir build; cd build; cmake .. -DCMAKE_BUILD_TYPE=RelWithDebInfo \
-  && make -j4 \
-  && mv box64 /usr/bin/box64 \
-  && chmod +x /usr/bin/box64 \
-  && cd ~ \
-  && rm -rf box64
+# Box64 BOX64_LD_LIBRARY_PATH=x64lib box64
+COPY ./box64 /usr/bin/box64
+RUN chmod +x /usr/bin/box64 \
+  && dpkg --add-architecture amd64 \
+  && dpkg --add-architecture arm64 \
+  && apt-get update \
+  && apt-get -y install lib32gcc-s1 lib32stdc++6 lib32z1 \
+  && apt-get upgrade -y 
 
 USER container
 ENV  USER container
