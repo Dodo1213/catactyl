@@ -18,7 +18,7 @@ RUN update-locale lang=en_US.UTF-8 \
  && dpkg-reconfigure --frontend noninteractive locales
 
    # Fixes
-RUN apt-get install -y --no-install-recommends gcc libcairo2-dev libpango1.0-dev libgcc1 gdb libc6 binutils xz-utils liblzo2-2 net-tools netcat telnet libatomic1 libsdl1.2debian libsdl2-2.0-0 libicu-dev icu-devtools libunwind8 libmariadb-dev-compat openssl libc6-dev libstdc++6 libssl1.1 libcurl4-gnutls-dev libjsoncpp-dev python3 build-essential zlib1g-dev libbz2-dev libreadline-dev libncurses5-dev libncursesw5-dev tk-dev libffi-dev libssl-dev less libasound2 libglib2.0-0 libnss3 libpulse0 libxslt1.1 libxkbcommon0 python libyaml-0-2 libpython2.7
+RUN apt-get install -y --no-install-recommends gcc libcairo2-dev libpango1.0-dev libgcc1 gdb libc6 binutils xz-utils liblzo2-2 net-tools netcat telnet libatomic1 libsdl1.2debian libsdl2-2.0-0 libicu-dev icu-devtools libunwind8 libmariadb-dev-compat openssl libc6-dev libssl1.1 libcurl4-gnutls-dev libjsoncpp-dev python3 build-essential zlib1g-dev libbz2-dev libreadline-dev libncurses5-dev libncursesw5-dev tk-dev libffi-dev libssl-dev less libasound2 libglib2.0-0 libnss3 libpulse0 libxslt1.1 libxkbcommon0 python libyaml-0-2 libpython2.7
 
   # Font 
 RUN update-locale lang=en_US.UTF-8 \
@@ -55,7 +55,6 @@ RUN apt-get update \
 COPY ./box64 /usr/bin/box64
 RUN chmod +x /usr/bin/box64
 RUN dpkg --add-architecture amd64 \
-  && apt-get update && apt-get -y install lib32gcc-s1 lib32stdc++6 \
   && dpkg --add-architecture arm64 
 
 USER container
