@@ -57,8 +57,8 @@ RUN apt-get update \
 COPY ./box64 /usr/bin/box64
 RUN chmod +x /usr/bin/box64
 RUN dpkg --add-architecture amd64 \
-  && apt-get update && apt-get -y install lib32gcc-s1 lib32stdc++6 lib32z1 \
   && dpkg --add-architecture arm64 \
+  && apt-get update && apt-get -y install lib32gcc-s1 lib32stdc++6 lib32z1 \
   && apt-get upgrade -y 
 
 USER container
