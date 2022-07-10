@@ -52,13 +52,11 @@ RUN apt-get update \
   && apt-get install -y g++ make libc6-dev cmake libpng-dev libjpeg-dev libxxf86vm-dev libgl1-mesa-dev libsqlite3-dev libogg-dev libvorbis-dev libopenal-dev libcurl4-gnutls-dev libfreetype6-dev zlib1g-dev libgmp-dev libjsoncpp-dev libzstd-dev libluajit-5.1-dev libirrlicht1.8 libirrlicht-dev libirrlicht-doc
 
 # Box64
-#COPY ./box64 /usr/bin/box64
-#RUN chmod +x /usr/bin/box64
+COPY ./box64 /usr/bin/box64
+RUN chmod +x /usr/bin/box64
 RUN dpkg --add-architecture amd64 \
   && apt-get update && apt-get -y install lib32gcc-s1 lib32stdc++6 \
-  && dpkg --add-architecture arm64 \
-  && apt update \
-  && apt install -y qemu-user qemu-user-static binfmt-support
+  && dpkg --add-architecture arm64 
 
 USER container
 ENV  USER container
