@@ -1,4 +1,6 @@
-FROM ghcr.io/jitesoft/debian:bullseye-slim
+FROM --platform=$TARGETOS/$TARGETARCH debian:bullseye-slim
+
+LABEL autthor="Devil38" maintainer="itznya10@gmail.com"
 
 ENV DEBIAN_FRONTEND noninteractive
 
@@ -50,6 +52,15 @@ RUN apt-get update \
 # Minetest
 RUN apt-get update \
   && apt-get install -y g++ make libc6-dev cmake libpng-dev libjpeg-dev libxxf86vm-dev libgl1-mesa-dev libsqlite3-dev libogg-dev libvorbis-dev libopenal-dev libcurl4-gnutls-dev libfreetype6-dev zlib1g-dev libgmp-dev libjsoncpp-dev libzstd-dev libluajit-5.1-dev libirrlicht1.8 libirrlicht-dev libirrlicht-doc
+
+# Box64 BOX64_LD_LIBRARY_PATH=x64lib box64
+COPY ./box64 /usr/bin/box64
+RUN chmod +x /usr/bin/box64 \
+  && dpkg --add-architecture amd64 \
+  && dpkg --add-architecture arm64 \
+  && apt-get update \
+  && apt-get -y install lib32gcc-s1 lib32stdc++6 lib32z1 \
+  && apt-get upgrade -y 
 
 USER container
 ENV  USER container
