@@ -56,11 +56,7 @@ COPY ./box64 /usr/bin/box64
 RUN chmod +x /usr/bin/box64
 RUN dpkg --add-architecture amd64 \
   && apt-get update && apt-get -y install lib32gcc-s1 lib32stdc++6 \
-  && dpkg --add-architecture arm64 \
-  && wget https://itai-nelken.github.io/weekly-box86-debs/debian/box86.list -O /etc/apt/sources.list.d/box86.list \
-  && wget -qO- https://itai-nelken.github.io/weekly-box86-debs/debian/KEY.gpg | apt-key add - \
- && apt update \
- && apt install box86 -y
+  && dpkg --add-architecture arm64 
 
 USER container
 ENV  USER container
