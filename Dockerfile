@@ -51,12 +51,16 @@ RUN apt-get update \
 RUN apt-get update \
   && apt-get install -y g++ make libc6-dev cmake libpng-dev libjpeg-dev libxxf86vm-dev libgl1-mesa-dev libsqlite3-dev libogg-dev libvorbis-dev libopenal-dev libcurl4-gnutls-dev libfreetype6-dev zlib1g-dev libgmp-dev libjsoncpp-dev libzstd-dev libluajit-5.1-dev libirrlicht1.8 libirrlicht-dev libirrlicht-doc
 
-# Box64
+# Box64 & Box86
 COPY ./box64 /usr/bin/box64
 RUN chmod +x /usr/bin/box64
 RUN dpkg --add-architecture amd64 \
   && apt-get update && apt-get -y install lib32gcc-s1 lib32stdc++6 \
-  && dpkg --add-architecture arm64 
+  && dpkg --add-architecture arm64 \
+  && wget https://itai-nelken.github.io/weekly-box86-debs/debian/box86.list -O /etc/apt/sources.list.d/box86.list \
+  && wget -qO- https://itai-nelken.github.io/weekly-box86-debs/debian/KEY.gpg | apt-key add - \
+ && apt update \
+ && apt install box86 -y
 
 USER container
 ENV  USER container
