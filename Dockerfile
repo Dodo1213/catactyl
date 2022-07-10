@@ -62,7 +62,7 @@ RUN apt-get update && apt-get install -y cmake \
   && cd ~ \
   && git clone https://github.com/ptitSeb/box64 \
   && cd box64 \
-  && mkdir build; cd build; cmake .. -DRPI4ARM64=1 -DCMAKE_BUILD_TYPE=RelWithDebInfo \
+  && mkdir build; cd build; cmake .. -DARM_DYNAREC=ON -DCMAKE_BUILD_TYPE=RelWithDebInfo \
   && make -j4 \
   && make install \
   && cd ~ \
