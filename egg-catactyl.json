@@ -4,7 +4,7 @@
         "version": "PTDL_v2",
         "update_url": null
     },
-    "exported_at": "2022-07-10T20:41:12+03:00",
+    "exported_at": "2022-08-09T12:43:19+03:00",
     "name": "Catactyl",
     "author": "itznya10@gmail.com",
     "description": "A generic pterodactyl egg",
@@ -285,6 +285,16 @@
             "name": "TeaSpeak file transfer port",
             "description": "",
             "env_variable": "TEA_FILE_PORT",
+            "default_value": "",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "nullable|string",
+            "field_type": "text"
+        },
+        {
+            "name": "Default Map for srcds games",
+            "description": "Default map used when starting the server.",
+            "env_variable": "SRCDS_MAP",
             "default_value": "",
             "user_viewable": true,
             "user_editable": true,
