@@ -62,6 +62,10 @@ RUN chmod +x /usr/bin/box64 \
   && apt-get -y install lib32gcc-s1 lib32stdc++6 lib32z1 \
   && apt-get upgrade -y 
 
+# Postgresql
+RUN apt-get update \
+  && apt-get install -y libpq5
+
 USER container
 ENV  USER container
 ENV  HOME /home/container
