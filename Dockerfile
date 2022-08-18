@@ -8,7 +8,7 @@ RUN apt-get update \
     && apt-get -y --no-install-recommends install apt-utils curl software-properties-common apt-transport-https ca-certificates wget tar dirmngr gnupg iproute2 make g++ locales git cmake zip unzip libtool-bin autoconf automake jq rpl locales
     
 RUN addgroup --gid 998 container \
- && useradd -D -m -u 999 -d /home/container -g container -s /bin/bash container
+ && useradd -D -m -u 999 -d /home/container -g container
   
     # Timezone
 ENV TZ=UTC
