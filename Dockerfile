@@ -63,7 +63,8 @@ RUN chmod +x /usr/bin/box64 \
 
 # Postgresql
 RUN apt-get update \
-  && apt-get install -y libpq5
+  && apt-get install -y libpq5 \
+  && chmod 644 /etc/passwd
 
 USER container
 ENV  USER container
