@@ -66,6 +66,10 @@ RUN chmod +x /usr/bin/box64 \
   && apt-get update \
   && apt-get -y install lib32gcc-s1 lib32stdc++6 lib32z1 \
   && apt-get upgrade -y 
+  
+# rcon for srcds
+COPY ./rcon /usr/bin/rcon
+RUN chmod +x /usr/bin/rcon 
 
 USER container
 ENV  USER container
