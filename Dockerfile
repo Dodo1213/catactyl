@@ -64,7 +64,11 @@ RUN chmod +x /usr/bin/box64 \
    # Steamcmd additional libs
 RUN dpkg --add-architecture i386 \
   && apt-get update \
-  && apt-get install -y libtinfo5:i386 libncurses5:i386 libcurl3-gnutls:i386   
+  && apt-get install -y libtinfo5:i386 libncurses5:i386 libcurl3-gnutls:i386 
+  
+  # rcon for srcds
+COPY ./rcon /usr/bin/rcon
+RUN chmod +x /usr/bin/rcon   
 
 USER container
 ENV  USER container
