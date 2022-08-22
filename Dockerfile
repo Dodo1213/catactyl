@@ -60,6 +60,11 @@ RUN chmod +x /usr/bin/box64 \
   && apt-get update \
   && apt-get -y install lib32gcc-s1 lib32stdc++6 lib32z1 \
   && apt-get upgrade -y 
+  
+   # Steamcmd additional libs
+RUN dpkg --add-architecture i386 \
+  && apt-get update \
+  && apt-get install -y libtinfo5:i386 libncurses5:i386 libcurl3-gnutls:i386   
 
 USER container
 ENV  USER container
