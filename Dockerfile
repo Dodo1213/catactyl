@@ -29,6 +29,11 @@ RUN update-locale lang=en_US.UTF-8 \
   # Others
 RUN apt-get update && apt-get install -y --no-install-recommends libxkbfile-dev libsecret-1-dev toilet libncursesw5 re2c bison
 
+   # Steamcmd additional libs
+RUN dpkg --add-architecture i386 \
+  && apt-get update \
+  && apt-get install -y libtinfo5:i386 libncurses5:i386 libcurl3-gnutls:i386  
+
   # Cleanup
 RUN apt-get autoremove -y
 
